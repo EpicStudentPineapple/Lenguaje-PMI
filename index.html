@@ -328,7 +328,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Número de alumnos</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">XXX Alumnos</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="rowCount">0</span></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -364,7 +364,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Cursos activos
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">XXX Cursos</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="rowCount">0</span> Cursos</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -382,7 +382,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Solicitudes pendientes</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">XXX Solicitudes</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">14 Solicitudes</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -396,7 +396,6 @@
                     <!-- Content Row -->
 
                     <div class="row">
-
                         <!-- Area Chart -->
                         <div class="col-xl-8 col-lg-7">
                             <div class="card shadow mb-4">
@@ -445,22 +444,33 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <canvas>
-                                        <table id="myAreaChart">
+                                    <!-- La tabla debe estar fuera del canvas -->
+                                    <table class="table table-bordered" id="myAreaChart">
+                                        <thead>
                                             <tr>
-                                                <td>Esto es una frase</td>
-                                                <td>Esto es una frase</td>
+                                                <th>Alumno</th>
+                                                <th>Sanción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Alumno 1</td>
+                                                <td>Sanción 1</td>
                                             </tr>
                                             <tr>
-                                                <td>Esto es una frase</td>
-                                                <td>Esto es una frase</td>
+                                                <td>Alumno 2</td>
+                                                <td>Sanción 2</td>
                                             </tr>
                                             <tr>
-                                                <td>Esto es una frase</td>
-                                                <td>Esto es una frase</td>
+                                                <td>Alumno 3</td>
+                                                <td>Sanción 3</td>
                                             </tr>
-                                        </table>    
-                                    </canvas>
+                                            <tr>
+                                                <td>Alumno 4</td>
+                                                <td>Sanción 4</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -663,6 +673,8 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
 
+    <!-- Addons -->
+    <script src="js/tablaCursos.js"></script>
 </body>
 
 </html>

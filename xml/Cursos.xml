@@ -1,0 +1,128 @@
+<DATA>
+
+	<ROW>
+		<idCurso>1</idCurso>
+		<idioma>Ingles</idioma>
+		<dia>Lunes</dia>
+		<horario>16:00 - 17:30</horario>
+		<dificultad>C2</dificultad>
+		<programa>Plan 1</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>2</idCurso>
+		<idioma>Ingles</idioma>
+		<dia>Martes</dia>
+		<horario>19:00 - 20:30</horario>
+		<dificultad>B1</dificultad>
+		<programa>Plan 2</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>3</idCurso>
+		<idioma>Euskera</idioma>
+		<dia>Miercoles</dia>
+		<horario>17:00 - 18:30</horario>
+		<dificultad>C2</dificultad>
+		<programa>Plan 3</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>4</idCurso>
+		<idioma>Euskera</idioma>
+		<dia>Jueves</dia>
+		<horario>20:30 - 22:00</horario>
+		<dificultad>B2</dificultad>
+		<programa>Plan 4</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>5</idCurso>
+		<idioma>Aleman</idioma>
+		<dia>Lunes</dia>
+		<horario>20:30 - 22:00</horario>
+		<dificultad>B2</dificultad>
+		<programa>Plan 5</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>6</idCurso>
+		<idioma>Aleman</idioma>
+		<dia>Miercoles</dia>
+		<horario>15:00 -16:30</horario>
+		<dificultad>A2</dificultad>
+		<programa>Plan 6</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>7</idCurso>
+		<idioma>Frances</idioma>
+		<dia>Viernes</dia>
+		<horario>21:30 - 23:00</horario>
+		<dificultad>A1</dificultad>
+		<programa>Plan 7</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>8</idCurso>
+		<idioma>Frances</idioma>
+		<dia>Jueves</dia>
+		<horario>16:00 - 17:30</horario>
+		<dificultad>C1</dificultad>
+		<programa>Plan 8</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>9</idCurso>
+		<idioma>Chino</idioma>
+		<dia>Jueves</dia>
+		<horario>18:00 - 19:30</horario>
+		<dificultad>A2</dificultad>
+		<programa>Plan 9</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>10</idCurso>
+		<idioma>Chino</idioma>
+		<dia>Martes</dia>
+		<horario>21:00 - 22:30</horario>
+		<dificultad>B2</dificultad>
+		<programa>Plan 10</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>11</idCurso>
+		<idioma>Español</idioma>
+		<dia>Viernes</dia>
+		<horario>19:30 - 21:00</horario>
+		<dificultad>C2</dificultad>
+		<programa>Plan 11</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>12</idCurso>
+		<idioma>Español</idioma>
+		<dia>Lunes</dia>
+		<horario>18:00 - 19:30</horario>
+		<dificultad>B1</dificultad>
+		<programa>Plan 12</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>13</idCurso>
+		<idioma>Italiano</idioma>
+		<dia>Martes</dia>
+		<horario>18:00 - 19:30</horario>
+		<dificultad>A1</dificultad>
+		<programa>Plan 13</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>14</idCurso>
+		<idioma>Italiano</idioma>
+		<dia>Viernes</dia>
+		<horario>17:30 - 19:00</horario>
+		<dificultad>A1</dificultad>
+		<programa>Plan 14</programa>
+	</ROW>
+</DATA>
