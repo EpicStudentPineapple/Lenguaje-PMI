@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap+oQ+...etc" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -331,7 +332,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="rowCount">0</span></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-graduation-cap fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -346,10 +347,10 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Numero de profesores</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">XXX Profesores</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="rowCount">0</span></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-chalkboard-user fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -405,10 +406,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Cursos activos</h6>
                                 </div>
                                 <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
+                                <div class="card-body" style="max-height: 400px;">
                                 </div>
                             </div>
                         </div>
@@ -420,16 +418,8 @@
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Sanciones recientes</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="max-height: 400px;">
                                     <!-- La tabla debe estar fuera del canvas -->
                                     <table class="table table-bordered" id="myAreaChart">
                                         <thead>
@@ -455,6 +445,14 @@
                                                 <td>Alumno 4</td>
                                                 <td>Sanción 4</td>
                                             </tr>
+                                            <tr>
+                                                <td>Alumno 5</td>
+                                                <td>Sanción 5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alumno 6</td>
+                                                <td>Sanción 6</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -475,106 +473,37 @@
                                 </div>
                                 <div class="card-body">
                                     <h4 class="small font-weight-bold">Curso A <span
-                                            class="float-right">Aprobados: 0%</span></h4>
+                                            class="float-right">Aprobados: 87%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 0%"
+                                        <div class="progress-bar" role="progressbar" style="width: 87%"
                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">Curso B <span
-                                            class="float-right">Aprobados: 0%</span></h4>
+                                            class="float-right">Aprobados: 62%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 0%"
+                                        <div class="progress-bar" role="progressbar" style="width: 62%"
                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">Curso C <span
-                                            class="float-right">Aprobados: 0%</span></h4>
+                                            class="float-right">Aprobados: 94%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 0%"
+                                        <div class="progress-bar" role="progressbar" style="width: 94%"
                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">Curso D <span
-                                            class="float-right">Aprobados: 0%</span></h4>
+                                            class="float-right">Aprobados: 75%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 0%"
+                                        <div class="progress-bar" role="progressbar" style="width: 75%"
                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">Curso E <span
-                                            class="float-right">Aprobados: 0%</span></h4>
+                                            class="float-right">Aprobados: 53%</span></h4>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 0%"
+                                        <div class="progress-bar" role="progressbar" style="width: 53%"
                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Color System -->
-                            <div class="row">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-primary text-white shadow">
-                                        <div class="card-body">
-                                            Primary
-                                            <div class="text-white-50 small">#4e73df</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-success text-white shadow">
-                                        <div class="card-body">
-                                            Success
-                                            <div class="text-white-50 small">#1cc88a</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-info text-white shadow">
-                                        <div class="card-body">
-                                            Info
-                                            <div class="text-white-50 small">#36b9cc</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-warning text-white shadow">
-                                        <div class="card-body">
-                                            Warning
-                                            <div class="text-white-50 small">#f6c23e</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-danger text-white shadow">
-                                        <div class="card-body">
-                                            Danger
-                                            <div class="text-white-50 small">#e74a3b</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-secondary text-white shadow">
-                                        <div class="card-body">
-                                            Secondary
-                                            <div class="text-white-50 small">#858796</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-light text-black shadow">
-                                        <div class="card-body">
-                                            Light
-                                            <div class="text-black-50 small">#f8f9fc</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-dark text-white shadow">
-                                        <div class="card-body">
-                                            Dark
-                                            <div class="text-white-50 small">#5a5c69</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
 
                         <div class="col-lg-6 mb-4">
@@ -584,24 +513,14 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Alumnos del curso</h6>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="max-height: 400px;">
                                     <div class="text-center"></div>
-                                    <p></p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/"></a>
                                 </div>
                             </div>
-
-                            <!-- Approach -->
                         </div>
                     </div>
-
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -609,19 +528,12 @@
                     </div>
                 </div>
             </footer>
-            <!-- End of Footer -->
-
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
