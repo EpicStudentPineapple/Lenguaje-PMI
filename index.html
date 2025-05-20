@@ -78,14 +78,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="tables1.html">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Alumnos</span></a>
+                    <span>Cursos</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables2.html">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Cursos</span></a>
+                    <span>Alumnos</span></a>
             </li>
 
             <!-- Divider -->
@@ -406,8 +406,25 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Cursos activos</h6>
                                 </div>
                                 <!-- Card Body -->
-                                <div class="card-body" style="max-height: 400px;">
-                                </div>
+                                <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>IdCurso</th>
+                                            <th>Idioma</th>
+                                            <th>Día</th>
+                                            <th>Horario</th>
+                                            <th>Dificultad</th>
+                                            <th>Programa</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Los datos se cargarán dinámicamente aquí -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                             </div>
                         </div>
 
@@ -572,7 +589,314 @@
     <script src="js/demo/chart-pie-demo.js"></script>
 
     <!-- Addons -->
-    <script src="js/tablaCursos.js"></script>
+    <script>
+        // XML con los datos de los alumnos
+        const xmlData = `
+        <DATA>  
+            <ROW>
+                <idCurso>1</idCurso>
+                <idioma>Ingles</idioma>
+		        <dia>Lunes</dia>
+		        <horario>16:00 - 17:30</horario>
+		        <dificultad>C2</dificultad>
+		        <programa>Plan 1</programa>
+	        </ROW>
+
+            <ROW>
+	    	    <idCurso>2</idCurso>
+    		    <idioma>Ingles</idioma>
+	    	    <dia>Martes</dia>
+		        <horario>19:00 - 20:30</horario>
+    		    <dificultad>B1</dificultad>
+	    	    <programa>Plan 2</programa>
+	        </ROW>
+
+	        <ROW>
+		        <idCurso>3</idCurso>
+		        <idioma>Euskera</idioma>
+		        <dia>Miercoles</dia>
+		        <horario>17:00 - 18:30</horario>
+		        <dificultad>C2</dificultad>
+		        <programa>Plan 3</programa>
+	        </ROW>
+
+		    <ROW>
+		        <idCurso>4</idCurso>
+		        <idioma>Euskera</idioma>
+		        <dia>Jueves</dia>
+		        <horario>20:30 - 22:00</horario>
+		        <dificultad>B2</dificultad>
+		        <programa>Plan 4</programa>
+		    </ROW>
+
+	<ROW>
+		<idCurso>5</idCurso>
+		<idioma>Aleman</idioma>
+		<dia>Lunes</dia>
+		<horario>20:30 - 22:00</horario>
+		<dificultad>B2</dificultad>
+		<programa>Plan 5</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>6</idCurso>
+		<idioma>Aleman</idioma>
+		<dia>Miercoles</dia>
+		<horario>15:00 -16:30</horario>
+		<dificultad>A2</dificultad>
+		<programa>Plan 6</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>7</idCurso>
+		<idioma>Frances</idioma>
+		<dia>Viernes</dia>
+		<horario>21:30 - 23:00</horario>
+		<dificultad>A1</dificultad>
+		<programa>Plan 7</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>8</idCurso>
+		<idioma>Frances</idioma>
+		<dia>Jueves</dia>
+		<horario>16:00 - 17:30</horario>
+		<dificultad>C1</dificultad>
+		<programa>Plan 8</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>9</idCurso>
+		<idioma>Chino</idioma>
+		<dia>Jueves</dia>
+		<horario>18:00 - 19:30</horario>
+		<dificultad>A2</dificultad>
+		<programa>Plan 9</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>10</idCurso>
+		<idioma>Chino</idioma>
+		<dia>Martes</dia>
+		<horario>21:00 - 22:30</horario>
+		<dificultad>B2</dificultad>
+		<programa>Plan 10</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>11</idCurso>
+		<idioma>Español</idioma>
+		<dia>Viernes</dia>
+		<horario>19:30 - 21:00</horario>
+		<dificultad>C2</dificultad>
+		<programa>Plan 11</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>12</idCurso>
+		<idioma>Español</idioma>
+		<dia>Lunes</dia>
+		<horario>18:00 - 19:30</horario>
+		<dificultad>B1</dificultad>
+		<programa>Plan 12</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>13</idCurso>
+		<idioma>Italiano</idioma>
+		<dia>Martes</dia>
+		<horario>18:00 - 19:30</horario>
+		<dificultad>A1</dificultad>
+		<programa>Plan 13</programa>
+	</ROW>
+
+	<ROW>
+		<idCurso>14</idCurso>
+		<idioma>Italiano</idioma>
+		<dia>Viernes</dia>
+		<horario>17:30 - 19:00</horario>
+		<dificultad>A1</dificultad>
+		<programa>Plan 14</programa>
+	</ROW>
+</DATA>
+`;
+
+        // Variables para almacenar los datos y los filtros
+        let alumnos = [];
+        let filtros = {
+            curso: '',
+            centro: '',
+            edad: ''
+        };
+
+        // Función para parsear el XML y extraer los datos
+        function parseXML() {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlData, "text/xml");
+    
+            const rows = xmlDoc.getElementsByTagName("ROW");
+            const alumnosArray = [];
+    
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const alumno = {
+                    idCurso: getElementTextContent(row, "idCurso"),
+                    idioma: getElementTextContent(row, "idioma"),
+                    dia: getElementTextContent(row, "dia"),
+                    horario: getElementTextContent(row, "horario"),
+                    dificultad: getElementTextContent(row, "dificultad"),
+                    programa: getElementTextContent(row, "programa")
+                };
+                alumnosArray.push(alumno);
+            }
+    
+            return alumnosArray;
+        }
+
+        
+        // Función auxiliar para obtener el contenido de texto de un elemento
+        function getElementTextContent(parent, tagName) {
+            const elements = parent.getElementsByTagName(tagName);
+            if (elements.length > 0 && elements[0].textContent) {
+                return elements[0].textContent.trim();
+            }
+            return "";
+        }
+        
+        // Función para cargar los datos en la tabla
+        function cargarTabla() {
+            const tbody = document.querySelector("#dataTable tbody");
+            tbody.innerHTML = "";
+    
+           // En este ejemplo no se aplican filtros; se muestran todos los registros
+           const alumnosFiltrados = alumnos;
+    
+           if (alumnosFiltrados.length === 0) {
+                const row = document.createElement("tr");
+                const cell = document.createElement("td");
+                cell.colSpan = 7; // 6 datos + 1 de acciones
+                cell.className = "text-center";
+                cell.textContent = "No se encontraron alumnos";
+                row.appendChild(cell);
+                tbody.appendChild(row);
+            } else {
+                alumnosFiltrados.forEach(alumno => {
+                    const row = document.createElement("tr");
+            
+                    // Lista de propiedades a desplegar (debe coincidir con lo extraído del XML)
+                    const properties = ["idCurso", "idioma", "dia", "horario", "dificultad", "programa"];
+                    properties.forEach(prop => {
+                        const cell = document.createElement("td");
+                        cell.textContent = alumno[prop];
+                        row.appendChild(cell);
+                    });
+            
+                    // Agregar la celda de acciones            
+                    tbody.appendChild(row);
+                });
+            }
+    
+            // Si no tienes en el HTML los elementos "totalAlumnos" o "alumnosVisibles", comenta estas líneas
+            // document.getElementById("totalAlumnos").textContent = alumnos.length;
+            // document.getElementById("alumnosVisibles").textContent = alumnosFiltrados.length;
+        }
+
+        
+        // Función para inicializar los filtros
+        function inicializarFiltros() {
+            // Obtener valores únicos para cada filtro
+            const cursos = [...new Set(alumnos.map(a => a.curso))].sort();
+            const centros = [...new Set(alumnos.map(a => a.centro))].sort();
+            const edades = [...new Set(alumnos.map(a => a.edad))].sort((a, b) => a - b);
+            
+            // Llenar los selectores
+            llenarSelector("filtroCurso", cursos);
+            llenarSelector("filtroCentro", centros);
+            llenarSelector("filtroEdad", edades);
+            
+            // Agregar eventos de cambio
+            document.getElementById("filtroCurso").addEventListener("change", function() {
+                filtros.curso = this.value;
+                cargarTabla();
+            });
+            
+            document.getElementById("filtroCentro").addEventListener("change", function() {
+                filtros.centro = this.value;
+                cargarTabla();
+            });
+            
+            document.getElementById("filtroEdad").addEventListener("change", function() {
+                filtros.edad = this.value;
+                cargarTabla();
+            });
+            
+            // Agregar evento para resetear filtros
+            document.getElementById("resetFilters").addEventListener("click", function() {
+                document.getElementById("filtroCurso").value = "";
+                document.getElementById("filtroCentro").value = "";
+                document.getElementById("filtroEdad").value = "";
+                
+                filtros = {
+                    curso: '',
+                    centro: '',
+                    edad: ''
+                };
+                
+                cargarTabla();
+            });
+        }
+        
+        // Función auxiliar para llenar un selector con opciones
+        function llenarSelector(id, valores) {
+            const selector = document.getElementById(id);
+            valores.forEach(valor => {
+                const option = document.createElement("option");
+                option.value = valor;
+                option.textContent = valor;
+                selector.appendChild(option);
+            });
+        }
+        
+        // Inicializar DataTable
+        function inicializarDataTable() {
+  $('#dataTable').DataTable({
+    "pageLength": 6,  // Muestra solo 6 filas por página
+    "language": {
+      "lengthMenu": "Mostrar _MENU_ registros por página",
+      "zeroRecords": "No se encontraron resultados",
+      "info": "Mostrando página _PAGE_ de _PAGES_",
+      "infoEmpty": "No hay registros disponibles",
+      "infoFiltered": "(filtrado de _MAX_ registros totales)",
+      "search": "Buscar:",
+      "paginate": {
+        "first": "Primero",
+        "last": "Último",
+        "next": "Siguiente",
+        "previous": "Anterior"
+      }
+    },
+    "initComplete": function() {
+      // Oculta el buscador por defecto de DataTables
+      $('.dataTables_filter').hide();
+    }
+  });
+}
+
+
+        
+        // Inicializar la aplicación cuando el DOM esté listo
+        document.addEventListener("DOMContentLoaded", function() {
+            // Parsear el XML y cargar los datos
+            alumnos = parseXML();
+    
+            // Cargar la tabla
+            cargarTabla();
+    
+            // Inicializar DataTable
+            inicializarDataTable();
+        });
+
+    </script>
 </body>
 
 </html>
