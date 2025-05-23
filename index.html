@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -329,7 +328,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Número de alumnos</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="rowCount">0</span></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="studentCount">0</span></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-graduation-cap fa-2x text-gray-300"></i>
@@ -347,7 +346,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Numero de profesores</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="rowCount">0</span></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span>12</span></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-chalkboard-user fa-2x text-gray-300"></i>
@@ -365,7 +364,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Cursos activos
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="rowCount">0</span> Cursos</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="courseCount">0</span> Cursos</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -407,24 +406,24 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>IdCurso</th>
-                                            <th>Idioma</th>
-                                            <th>Día</th>
-                                            <th>Horario</th>
-                                            <th>Dificultad</th>
-                                            <th>Programa</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Los datos se cargarán dinámicamente aquí -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead style="position: sticky; top: 0; background-color: #f8f9fc; z-index: 10;">
+                                                <tr>
+                                                    <th>IdCurso</th>
+                                                    <th>Idioma</th>
+                                                    <th>Día</th>
+                                                    <th>Horario</th>
+                                                    <th>Dificultad</th>
+                                                    <th>Programa</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Los datos se cargarán dinámicamente aquí -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -436,10 +435,10 @@
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Sanciones recientes</h6>
                                 </div>
-                                <div class="card-body" style="max-height: 400px;">
+                                <div class="card-body" style="max-height: 400px; overflow-y: auto;">
                                     <!-- La tabla debe estar fuera del canvas -->
                                     <table class="table table-bordered" id="myAreaChart">
-                                        <thead>
+                                        <thead style="position: sticky; top: 0; background-color: #f8f9fc; z-index: 10;">
                                             <tr>
                                                 <th>Alumno</th>
                                                 <th>Sanción</th>
@@ -525,13 +524,37 @@
 
                         <div class="col-lg-6 mb-4">
 
-                            <!-- Illustrations -->
+                            <!-- Tabla de Alumnos -->
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Alumnos del curso</h6>
+                                    <button class="btn btn-link text-primary p-0" id="toggleStudentsTable" type="button">
+                                        <i class="fas fa-chevron-down" id="toggleIcon"></i>
+                                    </button>
                                 </div>
-                                <div class="card-body" style="max-height: 400px;">
-                                    <div class="text-center"></div>
+                                <div class="card-body" id="studentsCardBody" style="max-height: 400px; overflow-y: auto; display: block;">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="studentsTable" width="100%" cellspacing="0">
+                                            <thead style="position: sticky; top: 0; background-color: #f8f9fc; z-index: 10;">
+                                                <tr>
+                                                    <th>DNI</th>
+                                                    <th>Nombre</th>
+                                                    <th>Apellido</th>
+                                                    <th>Correo</th>
+                                                    <th>Idioma</th>
+                                                    <th>Nivel</th>
+                                                    <th>Día</th>
+                                                    <th>Horario</th>
+                                                    <th>Asistencia</th>
+                                                    <th>Participación</th>
+                                                    <th>Rendimiento</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -572,26 +595,13 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
 
     <!-- Addons -->
     <script>
-        // XML con los datos de los alumnos
-        const xmlData = `
+        // XML con los datos de los cursos
+        const xmlCursosData = `
         <DATA>  
             <ROW>
                 <idCurso>1</idCurso>
@@ -718,185 +728,458 @@
 		<dificultad>A1</dificultad>
 		<programa>Plan 14</programa>
 	</ROW>
-</DATA>
-`;
+</DATA>`;
 
-        // Variables para almacenar los datos y los filtros
-        let alumnos = [];
-        let filtros = {
-            curso: '',
-            centro: '',
-            edad: ''
-        };
+        // XML con los datos de los alumnos
+        const xmlAlumnosData = `
+        <DATA>
+      <ROW>
+        <dni>12345678A</dni>
+        <nombre>Alumno1</nombre>
+        <apellido>Apellido1</apellido>
+        <correo>alumno1@gmail.com</correo>
+        <idioma>Ingles</idioma>
+        <nivelIdioma>C1</nivelIdioma>
+        <dia>Lunes</dia>
+        <horario>16:00 - 17:30</horario>
+        <asistencia>8</asistencia>
+        <participacion>7</participacion>
+        <rendimiento>8</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678A</dni>
+        <nombre>Alumno1</nombre>
+        <apellido>Apellido1</apellido>
+        <correo>alumno1@gmail.com</correo>
+        <idioma>Euskera</idioma>
+        <nivelIdioma>B1</nivelIdioma>
+        <dia>Miercoles</dia>
+        <horario>17:00 - 18:30</horario>
+        <asistencia>7</asistencia>
+        <participacion>6</participacion>
+        <rendimiento>7</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678B</dni>
+        <nombre>Alumno2</nombre>
+        <apellido>Apellido2</apellido>
+        <correo>alumno2@gmail.com</correo>
+        <idioma>Ingles</idioma>
+        <nivelIdioma>B1</nivelIdioma>
+        <dia>Martes</dia>
+        <horario>19:00 - 20:30</horario>
+        <asistencia>9</asistencia>
+        <participacion>8</participacion>
+        <rendimiento>7</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678B</dni>
+        <nombre>Alumno2</nombre>
+        <apellido>Apellido2</apellido>
+        <correo>alumno2@gmail.com</correo>
+        <idioma>Frances</idioma>
+        <nivelIdioma>C1</nivelIdioma>
+        <dia>Jueves</dia>
+        <horario>16:00 - 17:30</horario>
+        <asistencia>8</asistencia>
+        <participacion>7</participacion>
+        <rendimiento>6</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678C</dni>
+        <nombre>Alumno3</nombre>
+        <apellido>Apellido3</apellido>
+        <correo>alumno3@gmail.com</correo>
+        <idioma>Euskera</idioma>
+        <nivelIdioma>C1</nivelIdioma>
+        <dia>Miercoles</dia>
+        <horario>17:00 - 18:30</horario>
+        <asistencia>10</asistencia>
+        <participacion>9</participacion>
+        <rendimiento>9</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678C</dni>
+        <nombre>Alumno3</nombre>
+        <apellido>Apellido3</apellido>
+        <correo>alumno3@gmail.com</correo>
+        <idioma>Español</idioma>
+        <nivelIdioma>C1</nivelIdioma>
+        <dia>Viernes</dia>
+        <horario>19:30 - 21:00</horario>
+        <asistencia>9</asistencia>
+        <participacion>8</participacion>
+        <rendimiento>8</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678D</dni>
+        <nombre>Alumno4</nombre>
+        <apellido>Apellido4</apellido>
+        <correo>alumno4@gmail.com</correo>
+        <idioma>Euskera</idioma>
+        <nivelIdioma>B1</nivelIdioma>
+        <dia>Jueves</dia>
+        <horario>20:30 - 22:00</horario>
+        <asistencia>7</asistencia>
+        <participacion>8</participacion>
+        <rendimiento>7</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678D</dni>
+        <nombre>Alumno4</nombre>
+        <apellido>Apellido4</apellido>
+        <correo>alumno4@gmail.com</correo>
+        <idioma>Aleman</idioma>
+        <nivelIdioma>B1</nivelIdioma>
+        <dia>Lunes</dia>
+        <horario>20:30 - 22:00</horario>
+        <asistencia>6</asistencia>
+        <participacion>7</participacion>
+        <rendimiento>8</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678E</dni>
+        <nombre>Alumno5</nombre>
+        <apellido>Apellido5</apellido>
+        <correo>alumno5@gmail.com</correo>
+        <idioma>Aleman</idioma>
+        <nivelIdioma>B1</nivelIdioma>
+        <dia>Lunes</dia>
+        <horario>20:30 - 22:00</horario>
+        <asistencia>8</asistencia>
+        <participacion>7</participacion>
+        <rendimiento>6</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678E</dni>
+        <nombre>Alumno5</nombre>
+        <apellido>Apellido5</apellido>
+        <correo>alumno5@gmail.com</correo>
+        <idioma>Frances</idioma>
+        <nivelIdioma>A1</nivelIdioma>
+        <dia>Viernes</dia>
+        <horario>21:30 - 23:00</horario>
+        <asistencia>9</asistencia>
+        <participacion>6</participacion>
+        <rendimiento>7</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678F</dni>
+        <nombre>Alumno6</nombre>
+        <apellido>Apellido6</apellido>
+        <correo>alumno6@gmail.com</correo>
+        <idioma>Aleman</idioma>
+        <nivelIdioma>A2</nivelIdioma>
+        <dia>Miercoles</dia>
+        <horario>15:00 -16:30</horario>
+        <asistencia>9</asistencia>
+        <participacion>9</participacion>
+        <rendimiento>8</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678F</dni>
+        <nombre>Alumno6</nombre>
+        <apellido>Apellido6</apellido>
+        <correo>alumno6@gmail.com</correo>
+        <idioma>Chino</idioma>
+        <nivelIdioma>A2</nivelIdioma>
+        <dia>Jueves</dia>
+        <horario>18:00 - 19:30</horario>
+        <asistencia>7</asistencia>
+        <participacion>8</participacion>
+        <rendimiento>7</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678G</dni>
+        <nombre>Alumno7</nombre>
+        <apellido>Apellido7</apellido>
+        <correo>alumno7@gmail.com</correo>
+        <idioma>Chino</idioma>
+        <nivelIdioma>A2</nivelIdioma>
+        <dia>Jueves</dia>
+        <horario>18:00 - 19:30</horario>
+        <asistencia>8</asistencia>
+        <participacion>6</participacion>
+        <rendimiento>7</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678G</dni>
+        <nombre>Alumno7</nombre>
+        <apellido>Apellido7</apellido>
+        <correo>alumno7@gmail.com</correo>
+        <idioma>Italiano</idioma>
+        <nivelIdioma>A1</nivelIdioma>
+        <dia>Martes</dia>
+        <horario>18:00 - 19:30</horario>
+        <asistencia>7</asistencia>
+        <participacion>7</participacion>
+        <rendimiento>8</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678H</dni>
+        <nombre>Alumno8</nombre>
+        <apellido>Apellido8</apellido>
+        <correo>alumno8@gmail.com</correo>
+        <idioma>Chino</idioma>
+        <nivelIdioma>B2</nivelIdioma>
+        <dia>Martes</dia>
+        <horario>21:00 - 22:30</horario>
+        <asistencia>6</asistencia>
+        <participacion>7</participacion>
+        <rendimiento>7</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678H</dni>
+        <nombre>Alumno8</nombre>
+        <apellido>Apellido8</apellido>
+        <correo>alumno8@gmail.com</correo>
+        <idioma>Español</idioma>
+        <nivelIdioma>B1</nivelIdioma>
+        <dia>Lunes</dia>
+        <horario>18:00 - 19:30</horario>
+        <asistencia>8</asistencia>
+        <participacion>9</participacion>
+        <rendimiento>8</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678I</dni>
+        <nombre>Alumno9</nombre>
+        <apellido>Apellido9</apellido>
+        <correo>alumno9@gmail.com</correo>
+        <idioma>Español</idioma>
+        <nivelIdioma>C2</nivelIdioma>
+        <dia>Viernes</dia>
+        <horario>19:30 - 21:00</horario>
+        <asistencia>10</asistencia>
+        <participacion>9</participacion>
+        <rendimiento>10</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678I</dni>
+        <nombre>Alumno9</nombre>
+        <apellido>Apellido9</apellido>
+        <correo>alumno9@gmail.com</correo>
+        <idioma>Italiano</idioma>
+        <nivelIdioma>A1</nivelIdioma>
+        <dia>Viernes</dia>
+        <horario>17:30 - 19:00</horario>
+        <asistencia>9</asistencia>
+        <participacion>8</participacion>
+        <rendimiento>9</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678J</dni>
+        <nombre>Alumno10</nombre>
+        <apellido>Apellido10</apellido>
+        <correo>alumno10@gmail.com</correo>
+        <idioma>Frances</idioma>
+        <nivelIdioma>A1</nivelIdioma>
+        <dia>Viernes</dia>
+        <horario>21:30 - 23:00</horario>
+        <asistencia>7</asistencia>
+        <participacion>6</participacion>
+        <rendimiento>8</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678J</dni>
+        <nombre>Alumno10</nombre>
+        <apellido>Apellido10</apellido>
+        <correo>alumno10@gmail.com</correo>
+        <idioma>Italiano</idioma>
+        <nivelIdioma>A1</nivelIdioma>
+        <dia>Viernes</dia>
+        <horario>17:30 - 19:00</horario>
+        <asistencia>6</asistencia>
+        <participacion>7</participacion>
+        <rendimiento>7</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678K</dni>
+        <nombre>Alumno11</nombre>
+        <apellido>Apellido11</apellido>
+        <correo>alumno11@gmail.com</correo>
+        <idioma>Ingles</idioma>
+        <nivelIdioma>C2</nivelIdioma>
+        <dia>Lunes</dia>
+        <horario>16:00 - 17:30</horario>
+        <asistencia>9</asistencia>
+        <participacion>9</participacion>
+        <rendimiento>9</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678K</dni>
+        <nombre>Alumno11</nombre>
+        <apellido>Apellido11</apellido>
+        <correo>alumno11@gmail.com</correo>
+        <idioma>Euskera</idioma>
+        <nivelIdioma>C2</nivelIdioma>
+        <dia>Miercoles</dia>
+        <horario>17:00 - 18:30</horario>
+        <asistencia>8</asistencia>
+        <participacion>7</participacion>
+        <rendimiento>8</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678L</dni>
+        <nombre>Alumno12</nombre>
+        <apellido>Apellido12</apellido>
+        <correo>alumno12@gmail.com</correo>
+        <idioma>Aleman</idioma>
+        <nivelIdioma>B2</nivelIdioma>
+        <dia>Lunes</dia>
+        <horario>20:30 - 22:00</horario>
+        <asistencia>5</asistencia>
+        <participacion>6</participacion>
+        <rendimiento>7</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678L</dni>
+        <nombre>Alumno12</nombre>
+        <apellido>Apellido12</apellido>
+        <correo>alumno12@gmail.com</correo>
+        <idioma>Frances</idioma>
+        <nivelIdioma>C1</nivelIdioma>
+        <dia>Jueves</dia>
+        <horario>16:00 - 17:30</horario>
+        <asistencia>6</asistencia>
+        <participacion>5</participacion>
+        <rendimiento>6</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678M</dni>
+        <nombre>Alumno13</nombre>
+        <apellido>Apellido13</apellido>
+        <correo>alumno13@gmail.com</correo>
+        <idioma>Chino</idioma>
+        <nivelIdioma>A2</nivelIdioma>
+        <dia>Jueves</dia>
+        <horario>18:00 - 19:30</horario>
+        <asistencia>10</asistencia>
+        <participacion>9</participacion>
+        <rendimiento>8</rendimiento>
+      </ROW>
+      <ROW>
+        <dni>12345678M</dni>
+        <nombre>Alumno13</nombre>
+        <apellido>Apellido13</apellido>
+        <correo>alumno13@gmail.com</correo>
+        <idioma>Español</idioma>
+        <nivelIdioma>B1</nivelIdioma>
+        <dia>Lunes</dia>
+        <horario>18:00 - 19:30</horario>
+        <asistencia>9</asistencia>
+        <participacion>10</participacion>
+        <rendimiento>9</rendimiento>
+      </ROW>
+    </DATA>`;
 
-        // Función para parsear el XML y extraer los datos
-        function parseXML() {
+        // Función para procesar XML y convertir a array de objetos
+        function parseXMLToArray(xmlString) {
             const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlData, "text/xml");
-    
+            const xmlDoc = parser.parseFromString(xmlString, "text/xml");
             const rows = xmlDoc.getElementsByTagName("ROW");
-            const alumnosArray = [];
-    
+            const data = [];
+            
             for (let i = 0; i < rows.length; i++) {
                 const row = rows[i];
-                const alumno = {
-                    idCurso: getElementTextContent(row, "idCurso"),
-                    idioma: getElementTextContent(row, "idioma"),
-                    dia: getElementTextContent(row, "dia"),
-                    horario: getElementTextContent(row, "horario"),
-                    dificultad: getElementTextContent(row, "dificultad"),
-                    programa: getElementTextContent(row, "programa")
-                };
-                alumnosArray.push(alumno);
+                const rowData = {};
+                const children = row.children;
+                
+                for (let j = 0; j < children.length; j++) {
+                    const child = children[j];
+                    rowData[child.tagName] = child.textContent;
+                }
+                data.push(rowData);
             }
-    
-            return alumnosArray;
+            return data;
         }
 
-        
-        // Función auxiliar para obtener el contenido de texto de un elemento
-        function getElementTextContent(parent, tagName) {
-            const elements = parent.getElementsByTagName(tagName);
-            if (elements.length > 0 && elements[0].textContent) {
-                return elements[0].textContent.trim();
-            }
-            return "";
-        }
-        
-        // Función para cargar los datos en la tabla
-        function cargarTabla() {
-            const tbody = document.querySelector("#dataTable tbody");
-            tbody.innerHTML = "";
-    
-           // En este ejemplo no se aplican filtros; se muestran todos los registros
-           const alumnosFiltrados = alumnos;
-    
-           if (alumnosFiltrados.length === 0) {
-                const row = document.createElement("tr");
-                const cell = document.createElement("td");
-                cell.colSpan = 7; // 6 datos + 1 de acciones
-                cell.className = "text-center";
-                cell.textContent = "No se encontraron alumnos";
-                row.appendChild(cell);
+        // Función para cargar datos de cursos
+        function loadCursosData() {
+            const cursosData = parseXMLToArray(xmlCursosData);
+            const tbody = document.querySelector('#dataTable tbody');
+            tbody.innerHTML = '';
+            
+            cursosData.forEach(curso => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${curso.idCurso}</td>
+                    <td>${curso.idioma}</td>
+                    <td>${curso.dia}</td>
+                    <td>${curso.horario}</td>
+                    <td>${curso.dificultad}</td>
+                    <td>${curso.programa}</td>
+                `;
                 tbody.appendChild(row);
+            });
+            
+            // Actualizar contador de cursos
+            document.getElementById('courseCount').textContent = cursosData.length;
+        }
+
+        // Función para cargar datos de alumnos
+        function loadAlumnosData() {
+            const alumnosData = parseXMLToArray(xmlAlumnosData);
+            const tbody = document.querySelector('#studentsTable tbody');
+            tbody.innerHTML = '';
+            
+            alumnosData.forEach(alumno => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${alumno.dni}</td>
+                    <td>${alumno.nombre}</td>
+                    <td>${alumno.apellido}</td>
+                    <td>${alumno.correo}</td>
+                    <td>${alumno.idioma}</td>
+                    <td>${alumno.nivel}</td>
+                    <td>${alumno.dia}</td>
+                    <td>${alumno.horario}</td>
+                    <td>${alumno.asistencia}</td>
+                    <td>${alumno.participacion}</td>
+                    <td>${alumno.rendimiento}</td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            // Actualizar contador de alumnos
+            document.getElementById('studentCount').textContent = alumnosData.length;
+        }
+
+        // Función para alternar la visibilidad de la tabla de alumnos
+        function toggleStudentsTable() {
+            const cardBody = document.getElementById('studentsCardBody');
+            const icon = document.getElementById('toggleIcon');
+            
+            if (cardBody.style.display === 'none') {
+                cardBody.style.display = 'block';
+                icon.className = 'fas fa-chevron-down';
             } else {
-                alumnosFiltrados.forEach(alumno => {
-                    const row = document.createElement("tr");
-            
-                    // Lista de propiedades a desplegar (debe coincidir con lo extraído del XML)
-                    const properties = ["idCurso", "idioma", "dia", "horario", "dificultad", "programa"];
-                    properties.forEach(prop => {
-                        const cell = document.createElement("td");
-                        cell.textContent = alumno[prop];
-                        row.appendChild(cell);
-                    });
-            
-                    // Agregar la celda de acciones            
-                    tbody.appendChild(row);
-                });
+                cardBody.style.display = 'none';
+                icon.className = 'fas fa-chevron-up';
             }
-    
-            // Si no tienes en el HTML los elementos "totalAlumnos" o "alumnosVisibles", comenta estas líneas
-            // document.getElementById("totalAlumnos").textContent = alumnos.length;
-            // document.getElementById("alumnosVisibles").textContent = alumnosFiltrados.length;
         }
 
-        
-        // Función para inicializar los filtros
-        function inicializarFiltros() {
-            // Obtener valores únicos para cada filtro
-            const cursos = [...new Set(alumnos.map(a => a.curso))].sort();
-            const centros = [...new Set(alumnos.map(a => a.centro))].sort();
-            const edades = [...new Set(alumnos.map(a => a.edad))].sort((a, b) => a - b);
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar datos al iniciar
+            loadCursosData();
+            loadAlumnosData();
             
-            // Llenar los selectores
-            llenarSelector("filtroCurso", cursos);
-            llenarSelector("filtroCentro", centros);
-            llenarSelector("filtroEdad", edades);
+            // Agregar event listener para el botón de alternar
+            document.getElementById('toggleStudentsTable').addEventListener('click', toggleStudentsTable);
             
-            // Agregar eventos de cambio
-            document.getElementById("filtroCurso").addEventListener("change", function() {
-                filtros.curso = this.value;
-                cargarTabla();
+            // Sidebar toggle functionality
+            document.getElementById('sidebarToggle').addEventListener('click', function() {
+                document.body.classList.toggle('sidebar-toggled');
+                document.querySelector('.sidebar').classList.toggle('toggled');
             });
             
-            document.getElementById("filtroCentro").addEventListener("change", function() {
-                filtros.centro = this.value;
-                cargarTabla();
+            document.getElementById('sidebarToggleTop').addEventListener('click', function() {
+                document.body.classList.toggle('sidebar-toggled');
+                document.querySelector('.sidebar').classList.toggle('toggled');
             });
-            
-            document.getElementById("filtroEdad").addEventListener("change", function() {
-                filtros.edad = this.value;
-                cargarTabla();
-            });
-            
-            // Agregar evento para resetear filtros
-            document.getElementById("resetFilters").addEventListener("click", function() {
-                document.getElementById("filtroCurso").value = "";
-                document.getElementById("filtroCentro").value = "";
-                document.getElementById("filtroEdad").value = "";
-                
-                filtros = {
-                    curso: '',
-                    centro: '',
-                    edad: ''
-                };
-                
-                cargarTabla();
-            });
-        }
-        
-        // Función auxiliar para llenar un selector con opciones
-        function llenarSelector(id, valores) {
-            const selector = document.getElementById(id);
-            valores.forEach(valor => {
-                const option = document.createElement("option");
-                option.value = valor;
-                option.textContent = valor;
-                selector.appendChild(option);
-            });
-        }
-        
-        // Inicializar DataTable
-        function inicializarDataTable() {
-  $('#dataTable').DataTable({
-    "pageLength": 6,  // Muestra solo 6 filas por página
-    "language": {
-      "lengthMenu": "Mostrar _MENU_ registros por página",
-      "zeroRecords": "No se encontraron resultados",
-      "info": "Mostrando página _PAGE_ de _PAGES_",
-      "infoEmpty": "No hay registros disponibles",
-      "infoFiltered": "(filtrado de _MAX_ registros totales)",
-      "search": "Buscar:",
-      "paginate": {
-        "first": "Primero",
-        "last": "Último",
-        "next": "Siguiente",
-        "previous": "Anterior"
-      }
-    },
-    "initComplete": function() {
-      // Oculta el buscador por defecto de DataTables
-      $('.dataTables_filter').hide();
-    }
-  });
-}
-
-
-        
-        // Inicializar la aplicación cuando el DOM esté listo
-        document.addEventListener("DOMContentLoaded", function() {
-            // Parsear el XML y cargar los datos
-            alumnos = parseXML();
-    
-            // Cargar la tabla
-            cargarTabla();
-    
-            // Inicializar DataTable
-            inicializarDataTable();
         });
-
     </script>
-</body>
 
+</body>
 </html>
