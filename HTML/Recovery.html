@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña - Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary-solid: #667eea;
+            --secondary: #f8fafc;
+            --accent: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1e293b;
+            --light: #f1f5f9;
+            --glass: rgba(255, 255, 255, 0.1);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .auth-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .auth-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transform: rotate(-15deg);
+            transition: var(--transition);
+        }
+
+        .brand-logo:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .brand-logo i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .auth-title {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-subtitle {
+            color: #64748b;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            color: var(--dark);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-solid);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: white;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        .input-group .form-input {
+            padding-left: 3rem;
+        }
+
+        .btn-primary {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            padding: 0.875rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            width: 100%;
+            background: transparent;
+            color: var(--primary-solid);
+            border: 2px solid var(--primary-solid);
+            border-radius: var(--radius);
+            padding: 0.875rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .success-state {
+            display: none;
+        }
+
+        .success-state.active {
+            display: block;
+        }
+
+        .recovery-form.hidden {
+            display: none;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 2.5rem;
+            animation: successPulse 2s ease-out;
+        }
+
+        @keyframes successPulse {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .success-message {
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .info-box i {
+            color: var(--primary-solid);
+            margin-right: 0.5rem;
+        }
+
+        .info-box-text {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .auth-footer {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .auth-footer a {
+            color: var(--primary-solid);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .timer {
+            color: var(--primary-solid);
+            font-weight: 600;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                padding: 1rem;
+            }
+            
+            .auth-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <!-- Estado inicial del formulario -->
+            <div class="recovery-form" id="recovery-form">
+                <div class="brand-logo">
+                    <i class="fas fa-key"></i>
+                </div>
+                
+                <h1 class="auth-title">Recuperar Contraseña</h1>
+                <p class="auth-subtitle">
+                    Ingresa tu dirección de correo electrónico y te enviaremos un enlace para restablecer tu contraseña.
+                </p>
+                
+                <form id="recoveryForm">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Correo Electrónico</label>
+                        <div class="input-group">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="email" class="form-input" placeholder="tu@email.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <div class="info-box-text">
+                            Revisa tu bandeja de entrada y la carpeta de spam. El enlace de recuperación expirará en 1 hora.
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary" id="send-btn">
+                        <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
+                        Enviar Enlace de Recuperación
+                    </button>
+                </form>
+                
+                <a href="../index.html" class="btn-secondary">
+                    <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>
+                    Volver al Inicio de Sesión
+                </a>
+            </div>
+            
+            <!-- Estado de éxito -->
+            <div class="success-state" id="success-state">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                
+                <h2 class="success-title">¡Correo Enviado!</h2>
+                <p class="success-message">
+                    Hemos enviado un enlace de recuperación a <strong id="sent-email"></strong>. 
+                    Revisa tu bandeja de entrada y sigue las instrucciones para restablecer tu contraseña.
+                </p>
+                
+                <div class="info-box">
+                    <i class="fas fa-clock"></i>
+                    <div class="info-box-text">
+                        Si no recibes el correo en los próximos minutos, revisa tu carpeta de spam. 
+                        Puedes solicitar un nuevo enlace en <span class="timer" id="timer">60</span> segundos.
+                    </div>
+                </div>
+                
+                <button class="btn-primary" id="resend-btn" disabled>
+                    <i class="fas fa-redo" style="margin-right: 0.5rem;"></i>
+                    Reenviar Correo
+                </button>
+                
+                <a href="../index.html" class="btn-secondary">
+                    <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>
+                    Volver al Inicio de Sesión
+                </a>
+            </div>
+            
+            <div class="auth-footer">
+                ¿Recordaste tu contraseña? <a href="../index.html">Inicia sesión</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/Recovery.js"></script>
+</body>
+</html>

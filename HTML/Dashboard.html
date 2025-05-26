@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>NULL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/index.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="brand-text">Panel de Control</div>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <a href="./Dashboard.html" class="nav-link active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-heading">Principal</div>
+                    <div class="nav-item">
+                        <a href="./Cursos.html" class="nav-link">
+                            <i class="fas fa-book"></i>
+                            <span>Cursos</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="./Alumnos.html" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Alumnos</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="header-title">Panel de Control</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Buscar...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-content">
+                            <h3>Número de alumnos</h3>
+                            <div class="stat-number"><span id="studentCount">0</span></div>
+                        </div>
+                        <div class="stat-icon students">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-content">
+                            <h3>Número de profesores</h3>
+                            <div class="stat-number">12</div>
+                        </div>
+                        <div class="stat-icon teachers">
+                            <i class="fas fa-chalkboard-user"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-content">
+                            <h3>Cursos activos</h3>
+                            <div class="stat-number"><span id="courseCount">0</span></div>
+                        </div>
+                        <div class="stat-icon courses">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-content">
+                            <h3>Solicitudes pendientes</h3>
+                            <div class="stat-number">14</div>
+                        </div>
+                        <div class="stat-icon requests">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Courses Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Cursos activos</h3>
+                    </div>
+                    <div class="card-body" id="studentsCardBody">
+                        <div class="table-container">
+                            <table class="table" id="dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Idioma</th>
+                                        <th>Día</th>
+                                        <th>Horario</th>
+                                        <th>Dificultad</th>
+                                        <th>Programa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Los datos se cargarán dinámicamente aquí -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sanctions Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Sanciones recientes</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="sanctions-table">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Alumno</th>
+                                        <th>Sanción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Juan Pérez</td>
+                                        <td>Retraso frecuente</td>
+                                    </tr>
+                                    <tr>
+                                        <td>María García</td>
+                                        <td>Falta de participación</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carlos López</td>
+                                        <td>No entrega tareas</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ana Martín</td>
+                                        <td>Comportamiento inadecuado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Diego Silva</td>
+                                        <td>Faltas no justificadas</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Laura Torres</td>
+                                        <td>Uso indebido de dispositivos</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Content Grid -->
+            <div class="content-grid">
+                <!-- Progress Section -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Porcentaje de aprobados</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Curso 1</span>
+                                <span class="progress-percentage">87%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Curso 2</span>
+                                <span class="progress-percentage">62%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" style="width: 62%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Curso 3</span>
+                                <span class="progress-percentage">94%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Curso 4</span>
+                                <span class="progress-percentage">75%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Curso 5</span>
+                                <span class="progress-percentage">63%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" style="width: 63%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Curso 6</span>
+                                <span class="progress-percentage">78%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" style="width: 78%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Curso 7</span>
+                                <span class="progress-percentage">84%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" style="width: 84%"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Curso 8</span>
+                                <span class="progress-percentage">94%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" style="width: 94%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Students Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h3 class="card-title">Alumnos del curso</h3>
+                            <button class="toggle-btn" id="toggleStudentsTable">
+                                <i class="fas fa-chevron-down" id="toggleIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body" id="studentsCardBody">
+                        <div class="table-container">
+                            <table class="table" id="studentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>DNI</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>Correo</th>
+                                        <th>Idioma</th>
+                                        <th>Nivel</th>
+                                        <th>Día</th>
+                                        <th>Horario</th>
+                                        <th>Asistencia</th>
+                                        <th>Participación</th>
+                                        <th>Rendimiento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Los datos se cargarán dinámicamente aquí -->
+                                </tbody>
+                            </table>
+                        </div><br><br>
+                        <div id="pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../JS/Dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>NULL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/Cursos.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="brand-text">Panel de Control</div>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <a href="./Dashboard.html" class="nav-link active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-heading">Principal</div>
+                    <div class="nav-item">
+                        <a href="./Cursos.html" class="nav-link">
+                            <i class="fas fa-book"></i>
+                            <span>Cursos</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="./Alumnos.html" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Alumnos</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="header-title">Panel de Control</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Buscar...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Courses Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Cursos activos</h3>
+                    </div>
+                    <div class="card-body" id="studentsCardBody">
+                        <div class="table-container">
+                            <table class="table" id="StudentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>DNI</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>Correo</th>
+                                        <th>Idioma</th>
+                                        <th>Nivel</th>
+                                        <th>Día</th>
+                                        <th>Horario</th>
+                                        <th>Asistencia</th>
+                                        <th>Participación</th>
+                                        <th>Rendimiento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Los datos se cargarán dinámicamente aquí -->
+                                </tbody>
+                            </table>
+                        </div><br><br>
+                        <div id="pagination"></div>
+                    </div>
+                </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../JS/Alumnos.js"></script>
+</body>
+</html>

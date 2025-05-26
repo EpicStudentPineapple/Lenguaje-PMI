@@ -3,40 +3,53 @@
     "development"
   ],
   "hints": {
-    "axe/name-role-value": [
+    "compat-api/css": [
       "default",
       {
-        "button-name": "off",
-        "link-name": "off"
+        "ignore": [
+          "grid-template-columns",
+          "gap",
+          "display: grid",
+          "backdrop-filter",
+          "grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))",
+          "-webkit-text-fill-color",
+          "background-clip: text",
+          "overflow-y: auto",
+          "text-align: left",
+          "position: sticky",
+          "text-align: center",
+          "max-height: none",
+          "accent-color",
+          "inset"
+        ]
       }
     ],
     "no-inline-styles": "off",
-    "axe/aria": [
+    "axe/name-role-value": [
       "default",
       {
-        "aria-progressbar-name": "off"
-      }
-    ],
-    "axe/text-alternatives": [
-      "default",
-      {
-        "image-alt": "off"
+        "button-name": "off"
       }
     ],
     "axe/structure": [
       "default",
       {
-        "list": "off"
+        "listitem": "off"
+      }
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "label": "off"
       }
     ],
     "compat-api/html": [
       "default",
       {
         "ignore": [
-          "link[referrerpolicy]"
+          "form[novalidate]"
         ]
       }
-    ],
-    "button-type": "off"
+    ]
   }
 }
